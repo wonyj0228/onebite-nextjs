@@ -6,7 +6,7 @@ export default function BookItem({
   id,
   title,
   subTitle,
-  description,
+  // description,
   author,
   publisher,
   coverImgUrl,
