@@ -1,7 +1,7 @@
 import { IBook } from '@/types';
 
 export default async function fetchBooks(q?: string): Promise<IBook[]> {
-  let url = `http://localhost:12345/book`;
+  let url = `https://onebite-books-server-main-ivory.vercel.app/book`;
 
   if (q) {
     url += `/search?q=${q}`;
