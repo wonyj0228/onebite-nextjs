@@ -1,5 +1,6 @@
-import Link from 'next/link';
 import './globals.css';
+import Link from 'next/link';
+import style from './layout.module.css';
 
 export default function RootLayout({
   children,
@@ -7,16 +8,15 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="ko">
+    <html lang="en">
       <body>
-        <header>
-          <Link href={'/'}>index</Link>
-          &nbsp;
-          <Link href={'/search'}>search</Link>
-          &nbsp;
-          <Link href={'/book/1'}>book/1</Link>
-        </header>
-        {children}
+        <div className={style.container}>
+          <header>
+            <Link href={'/'}>📚 ONEBITE BOOKS</Link>
+          </header>
+          <main>{children}</main>
+          <footer>제작 @onda</footer>
+        </div>
       </body>
     </html>
   );
