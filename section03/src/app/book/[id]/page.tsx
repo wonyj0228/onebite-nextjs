@@ -2,9 +2,6 @@ import { BookData } from '@/types';
 import style from './page.module.css';
 import { notFound } from 'next/navigation';
 
-// 정적인 파라미터를 제외한 모든 경로를 404로 보내고 싶다면?
-// export const dynamicParams = false;
-
 export function generateStaticParams() {
   return [{ id: '1' }, { id: '2' }, { id: '3' }];
 }
