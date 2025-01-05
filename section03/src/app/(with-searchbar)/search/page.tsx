@@ -13,7 +13,7 @@ export default async function Page({
   await delay(1500);
   const response = await fetch(
     `${process.env.NEXT_PUBLIC_API_SERVER_URL}/book/search?q=${q}`,
-    { cache: 'force-cache' }
+    { cache: 'no-store' }
   );
   if (!response.ok) {
     return <div>오류가 발생했습니다...</div>;
