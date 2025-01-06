@@ -1,4 +1,7 @@
-'use server'; // --> server action으로써 사용하기 위한 키워드
+'use server';
+import { revalidatePath } from 'next/cache';
+
+// --> server action으로써 사용하기 위한 키워드
 
 // 서버액션 함수
 // api를 사용하면? 별도의 경로 설정 + 파일추가 + 예외처리 = 귀찮음
@@ -23,6 +26,8 @@ export async function createReviewAction(formData: FormData) {
       }
     );
     console.log(response.status);
+
+    revalidatePath(`/book/${bookId}`); // 해당 경로의 화면을 재검증. 다시 생성함.
   } catch (err) {
     console.log(err);
     return;
