@@ -1,6 +1,27 @@
 import { delay } from '@/app/util/delay';
 import BookItem from '@/components/book-item';
 import { BookData } from '@/types';
+import { Metadata } from 'next';
+
+export async function generateMetadata({
+  searchParams,
+}: {
+  searchParams: Promise<{
+    q?: string;
+  }>;
+}): Promise<Metadata> {
+  const { q } = await searchParams;
+
+  return {
+    title: `${q} : 한입 북스 검색`,
+    description: `${q}의 검색 결과입니다.`,
+    openGraph: {
+      title: `${q} : 한입 북스 검색`,
+      description: `${q}의 검색 결과입니다.`,
+      images: ['/thumbnail.png'],
+    },
+  };
+}
 
 export default async function Page({
   searchParams,
