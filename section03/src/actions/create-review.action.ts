@@ -1,5 +1,4 @@
 'use server';
-import { delay } from '@/app/util/delay';
 import { revalidateTag } from 'next/cache';
 
 // --> server action으로써 사용하기 위한 키워드
@@ -22,7 +21,6 @@ export async function createReviewAction(state: any, formData: FormData) {
   }
 
   try {
-    await delay(2000);
     const response = await fetch(
       `${process.env.NEXT_PUBLIC_API_SERVER_URL}/review`,
       {
