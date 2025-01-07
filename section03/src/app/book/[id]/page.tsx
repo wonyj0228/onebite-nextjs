@@ -46,7 +46,8 @@ async function ReviewList({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
 
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/book/${id}`
+    `${process.env.NEXT_PUBLIC_API_SERVER_URL}/review/book/${id}`,
+    { next: { tags: [`review-${id}`] } }
   );
 
   if (!response.ok) {
@@ -68,7 +69,7 @@ export default function Page({ params }: { params: Promise<{ id: string }> }) {
   return (
     <div className={style.container}>
       <BookDetail params={params} />
-      <ReviewEditor params={params} />
+      <ReviewEditor />
       <ReviewList params={params} />
     </div>
   );
